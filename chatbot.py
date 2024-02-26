@@ -1,5 +1,25 @@
+import os
 from openai import OpenAI
-client = OpenAI()
+import streamlit as st
+
+#환경변수 읽기
+from dotenv import load_dotenv
+load_dotenv()
+
+st.title("Streamlit Test")
+st.write("hello world")
+st.write("""
+# MarkDown
+> comment
+- one
+- two
+- three
+""")
+
+# print(os.environ.get("OPENAI_API_KEY"))
+
+client =OpenAI(api_key=os.environ.get("OPENAI_API_KEY"),)
+# OpenAI.api_key = os.environ.get("OPENAI_API_KEY")
 
 completion = client.chat.completions.create(
   model="gpt-3.5-turbo",
@@ -9,4 +29,4 @@ completion = client.chat.completions.create(
   ]
 )
 
-print(completion.choices[0].message)
+st.write(completion.choices[0].message)
