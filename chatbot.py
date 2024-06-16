@@ -2,7 +2,6 @@ from datetime import datetime, timedelta
 from io import BytesIO
 import os
 import textwrap
-from openai import OpenAI
 import streamlit as st
 import requests
 import openai
