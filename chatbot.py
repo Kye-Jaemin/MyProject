@@ -4,6 +4,7 @@ import os
 import textwrap
 import streamlit as st
 import requests
+from openai import OpenAI
 import openai
 from bs4 import BeautifulSoup
 from pprint import pprint
