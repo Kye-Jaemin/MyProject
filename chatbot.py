@@ -14,7 +14,6 @@ from PIL import Image
 from newspaper.article import ArticleException
 from jinja2 import Template
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-import tkinter as tk
 from tkinter import filedialog
 
 #환경변수 읽기
