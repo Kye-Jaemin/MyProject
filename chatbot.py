@@ -2,18 +2,18 @@ from datetime import datetime, timedelta
 from io import BytesIO
 import os
 import textwrap
+from openai import OpenAI
 import streamlit as st
 import requests
-from openai import OpenAI
 import openai
 from bs4 import BeautifulSoup
-from pprint import pprint
 from newspaper import Article, Config
 import time
 from PIL import Image
 from newspaper.article import ArticleException
 from jinja2 import Template
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+
 
 #환경변수 읽기
 from dotenv import load_dotenv
@@ -133,7 +133,7 @@ def translate(text, source_lang, target_lang):
     
 def makeImageTextPairs(index, new_image_path, new_text1,new_text2,new_text3,read_more):
     new_pair = (new_image_path, [new_text1, new_text2, new_text3, read_more])
-    pprint("makeImageTextPairs :" + new_text1)
+    # pprint("makeImageTextPairs :" + new_text1)
     # global image_text_pairs
     st.session_state.image_text_pairs.insert(index, new_pair)
 
@@ -309,7 +309,7 @@ def get_news_content(news_links, number):
                 count += 1
         else:
             break  # 이미 필요한 수량을 충족한 경우 루프 종료
-    pprint(st.session_state.image_text_pairs)
+    # pprint(st.session_state.image_text_pairs)
     return st.session_state.image_text_pairs  # 이 부분은 함수가 마지막 링크의 컨텐츠만 반환한다는 점을 고려해야 합니다.
 
 def mainDisplay():
